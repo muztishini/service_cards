@@ -1,0 +1,31 @@
+body{
+    margin:40px auto;
+    max-width:650px;
+    line-height:1.6;
+    font-size:18px;
+    color:#444;
+    padding:0 10px;
+}
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+h2 {
+    color: red;
+    text-align: center;
+}
+
+form {
+    width: 670px;
+    border-style: double;
+    border-color: blue;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input:invalid {border-color: red;}
+input:valid {border-color: green;}

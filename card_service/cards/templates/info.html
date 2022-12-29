@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+    <title>Информация по карте</title>
+</head>
+<body>
+    <h1>Информация по карте</h1>
+
+    {% if seria and nomer %}
+    <ul class="list-group">
+        <li class="list-group-item"><b>Серия:</b> {{seria}}</li>         
+        <li class="list-group-item"><b>Номер:</b> {{nomer}}</li>         
+        <li class="list-group-item"><b>Дата открытия:</b> {{dts}}</li>           
+        <li class="list-group-item"><b>Дата закрытия:</b> {{dte}}</li>    
+        <li class="list-group-item"><b>Баланс:</b> {{sum}} </li>
+        <li class="list-group-item"><b>Срок действия:</b> {{srk}}</li>   
+        <li class="list-group-item"><b>Статус:</b> {{sts}} </li>     
+      </ul>
+      <a href="{% url 'balance' card_id %}"><button type="submit" class="btn btn-info" name="info_card">Посмотреть действия по карте</button></a>
+      <a href="{% url 'status' card_id %}"><button type="submit" class="btn btn-success" name="status_card">Сменить статус</button></a>
+       <a href="{% url 'delete' card_id %}"><button type="submit" class="btn btn-danger" name="delete_card">Удалить карту</button></a>
+
+    {% else %}
+    <h2>{{text}}</h2>
+    {% endif %}
+    
+
+    {% for element in list %}
+        <li>{{element.change}}: {{element.value}}</li>
+    {% endfor %}
+
+
+<h2>{{error}}</h2>
+
+    
+</body>
+<p>
+<a href="{% url 'main' %}">Главная</a>
+</p>
+
+</html>
